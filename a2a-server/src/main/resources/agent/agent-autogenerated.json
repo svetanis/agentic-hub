@@ -1,0 +1,39 @@
+{
+  "name": "ProductCatalogAgent",
+  "description": "External vendor's product catalog agent that provides product information and availability.",
+  "url": "http://localhost:9090",
+  "version": "1.0.0",
+  "capabilities": {
+    "streaming": true,
+    "pushNotifications": false,
+    "stateTransitionHistory": false
+  },
+  "defaultInputModes": [
+    "text/plain"
+  ],
+  "defaultOutputModes": [
+    "application/json"
+  ],
+  "skills": [
+    {
+      "id": "product.catalog.agent",
+      "name": "model",
+      "description": "External vendor's product catalog agent that provides product information and availability. \n    I am a product catalog specialist from an external vendor.\n    When asked about products, use the get_product_info tool to fetch data from the catalog.\n    Provide clear, accurate product information including price, availability, and specs.\n    If asked about multiple products, look up each one.\n    Be professional and helpful.\n    ",
+      "tags": [
+        "llm"
+      ]
+    },
+    {
+      "id": "product.catalog.agent.getproductinfo",
+      "name": "getProductInfo",
+      "description": "Get product information for a given product.",
+      "tags": [
+        "llm",
+        "tools"
+      ]
+    }
+  ],
+  "supportsAuthenticatedExtendedCard": false,
+  "preferredTransport": "JSONRPC",
+  "protocolVersion": "0.3.0"
+}
