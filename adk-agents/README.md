@@ -33,6 +33,27 @@
 
 ---
 
+## 🏗️ Architecture: Decoupled Multi-Agent Design
+
+`adk-agents` implements a highly decoupled, provider-driven architecture to scale the loading and management of dozens of domain-specific agents without creating monolithic configuration classes:
+
+1. **Configuration POJO ([`AgentConfig`](src/main/java/com/svetanis/agents/base/AgentConfig.java))**:
+   A lightweight, immutable data model representing the parsed agent properties (name, model, description, system instructions). It uses Jackson builder deserialization (`@JsonDeserialize`) and contains zero execution dependencies.
+   
+2. **Context Container ([`AgentContext`](src/main/java/com/svetanis/agents/base/AgentContext.java))**:
+   A context builder connecting the raw configuration parameters to active runtime dependencies (such as custom `tools`, sub-agents, and the global `plugins`).
+   
+3. **Inference Factory ([`LlmAgentProvider`](src/main/java/com/svetanis/agents/base/LlmAgentProvider.java))**:
+   An standard `jakarta.inject.Provider` that translates an `AgentContext` into an active, runnable ADK `LlmAgent` instance, binding the target callbacks, tools, and subagents dynamically.
+   
+4. **Resources Scanner ([`AgentConfigsProvider`](src/main/java/com/svetanis/agents/base/AgentConfigsProvider.java))**:
+   Loads and parses individual `.yaml` agent blueprints from the classpath folder (`/agent-configs`) using Google Guava's resource classpath scanning and a YAML serializer.
+   
+5. **Orchestrators (e.g. [`TutorRootAgent`](src/main/java/com/svetanis/agents/tutor/TutorRootAgent.java))**:
+   Domain-specific providers that assemble the execution context for a given agent by loading its configuration block, creating custom tools/sub-agents, constructing the `AgentContext`, and delegating instantiation to the generic `LlmAgentProvider`.
+
+---
+
 ## 🚀 Getting Started
 
 ### Prerequisites
