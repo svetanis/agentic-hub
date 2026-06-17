@@ -14,8 +14,8 @@ This monorepo is structured as a Maven multi-module project to facilitate clean 
 
 ## 🛠️ Repository Structure
 
-*   📂 **[adk-agents](adk-agents)**: A collection of diverse, domain-specific AI agents built using the Google Agent Development Kit (ADK) and the Model Prism registry.
-*   📂 **[a2a-server](a2a-server)**: A Quarkus-based server wrapping ADK agents to expose them over the Agent-to-Agent (A2A) protocol.
+*   📂 **[adk-agents](https://github.com/svetanis/agentic-hub/tree/main/adk-agents)**: A collection of diverse, domain-specific AI agents built using the Google Agent Development Kit (ADK) and the Model Prism registry.
+*   📂 **[a2a-server](https://github.com/svetanis/agentic-hub/tree/main/a2a-server)**: A Quarkus-based server wrapping ADK agents to expose them over the Agent-to-Agent (A2A) protocol.
 
 ---
 
