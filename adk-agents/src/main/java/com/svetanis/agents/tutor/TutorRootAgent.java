@@ -15,8 +15,8 @@ import com.svetanis.agents.base.AgentConfig;
 import com.svetanis.agents.base.AgentContext;
 import com.svetanis.agents.base.AppConfig;
 import com.svetanis.agents.base.LlmAgentProvider;
-import com.svetanis.agents.base.tools.CodeExecutionToolProvider;
-import com.svetanis.agents.base.tools.SearchAgentToolProvider;
+import com.svetanis.agents.tools.CodeExecutionToolProvider;
+import com.svetanis.agents.tools.SearchAgentToolProvider;
 
 import jakarta.inject.Provider;
 

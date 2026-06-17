@@ -1,4 +1,4 @@
-package com.svetanis.agents.base.tools;
+package com.svetanis.agents.tools;
 
 import static com.google.api.client.util.Preconditions.checkNotNull;
 
