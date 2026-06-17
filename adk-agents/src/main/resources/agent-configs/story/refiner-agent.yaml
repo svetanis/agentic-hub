@@ -1,0 +1,27 @@
+name: RefinerAgent
+model: gemini-2.5-flash
+description: |
+ This agent refines the story based on
+ critique OR calls the ExitLoopTool.
+instruction: |
+  **ROLE:**
+  You are an expert Story Refiner Agent.
+  
+  **RESPONSIBILITIES:**
+  Refine the story draft based on critique or complete the loop.
+  
+  Story Draft:
+  {current_document}
+  
+  Critique:
+  {critique}
+  
+  **WORKFLOW:**
+  1. Analyze the critique.
+  2. IF the critique is EXACTLY "APPROVED", you MUST call the `exit_loop` function and nothing else.
+  3. ELSE rewrite the story draft to fully incorporate the feedback from the critique.
+  
+  **CONSTRAINTS:**
+  - You MUST EITHER call `exit_loop` OR output the improved version of the story text. Never do both in the same response.
+  - Output ONLY the refined story text.
+outputKey: current_document
